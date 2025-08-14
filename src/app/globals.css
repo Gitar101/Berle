@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000; /* Pure black background */
+  --foreground: #FFFFFF; /* White foreground for text */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-rajdhani);
+  --font-mono: var(--font-rajdhani);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #FFFFFF;
+  }
+}
+
+body {
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}

@@ -1,0 +1,36 @@
+.glow-text {
+  color: #c2b9f1;
+  text-shadow: 0 0 8px rgba(224, 187, 228, 0.8), 0 0 10px rgba(138, 43, 226, 0.6);
+}
+
+.glow-button {
+  background-color: #101019;
+  border: 1px solid #27252c;
+  border-radius: 20px;
+  padding: 18px 26px;
+  color: #FFFFFF;
+  text-shadow: none;
+  box-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 15px rgba(147, 112, 219, 0.8);
+}
+
+.purple-square {
+  background-color: rgba(126,81,223,255);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+}
+
+.vertical-line {
+  width: 0.2rem;
+  height: 1.75rem;
+  background-color: white;
+}
