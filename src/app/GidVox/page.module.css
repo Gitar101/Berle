@@ -1,0 +1,305 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1a0a2a, #0a0510); /* Dark purple gradient */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2a1a3a; /* Slightly lighter purple for header */
+  border-bottom: 1px solid #4a2a6a; /* Border to separate header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menuIcon,
+.settingsIcon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #4a2a6a; /* Purple background for icons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menuIcon:hover,
+.settingsIcon:hover {
+  background-color: #5a3a7a;
+}
+
+.menuLine {
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 4px 0;
+  border-radius: 1px;
+}
+
+.menuIcon .menuLine:nth-child(2) {
+  width: 15px; /* Shorter middle line for menu icon */
+}
+
+.gearIcon,
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.mainContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  gap: 5px; /* Reduced gap between chat messages */
+}
+
+.chatMessageContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%; /* Allow full width for AI messages */
+}
+
+.userMessageContainer {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.aiMessageContainer {
+  align-self: flex-start;
+  align-items: flex-start;
+  padding-left: 20px; /* Add some padding to align with the image */
+}
+
+.messageHeader {
+  margin-bottom: 0px; /* Remove margin for header */
+}
+
+.senderName {
+  font-size: 24px; /* Larger font size for sender name */
+  font-weight: bold; /* Reverted to bold font weight */
+  color: #ffffff; /* White color for sender name */
+  margin-bottom: 0px; /* Reduced space below sender name */
+  position: relative;
+  display: inline-block;
+}
+
+.senderName::before {
+  content: '';
+  position: absolute;
+  top: -5px; /* Adjusted position of the line above the text */
+  left: 0;
+  width: 50px; /* Length of the line */
+  height: 2px;
+  background-color: #8a2be2; /* Color of the line */
+}
+
+.chatMessage {
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.4 !important; /* Tighter base line-height for AI messages */
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: transparent !important; /* Remove background for AI messages */
+  box-shadow: none !important; /* Remove shadow for AI messages */
+  border-bottom-left-radius: 0 !important; /* Remove specific border radius */
+}
+
+.user-message {
+  background-color: #8a2be2; /* Bright purple for user messages */
+  color: #ffffff;
+  border-bottom-right-radius: 5px; /* Sharper corner on one side */
+}
+
+.ai-message {
+  background-color: transparent; /* Darker purple for AI messages */
+  color: #ffffff;
+  border-bottom-left-radius: 0; /* Sharper corner on one side */
+  padding: 0; /* Remove padding for AI messages */
+}
+
+
+.ai-message p,
+.ai-message h1,
+.ai-message h2,
+.ai-message h3,
+.ai-message h4,
+.ai-message h5,
+.ai-message h6,
+.ai-message blockquote,
+.ai-message pre,
+.ai-message table,
+.ai-message thead,
+.ai-message tbody,
+.ai-message tr,
+.ai-message th,
+.ai-message td {
+  margin: 0 !important; /* Aggressively reset margins */
+  padding: 0 !important; /* Aggressively reset paddings */
+}
+
+.ai-message p {
+  margin-bottom: 0em; /* Further reduced margin after paragraphs */
+  line-height: 1.1 !important; /* Reduced line-height for paragraphs */
+}
+
+.ai-message h1,
+.ai-message h2,
+.ai-message h3,
+.ai-message h4,
+.ai-message h5,
+.ai-message h6 {
+  margin-top: 0.5em; /* Reduced space above headings */
+  margin-bottom: 0.2em; /* Reduced space below headings */
+  line-height: 1.1; /* Tighter line-height for headings */
+}
+
+.ai-message ul,
+.ai-message ol {
+  margin: 0; /* Aggressively reset margins */
+  padding-left: 20px; /* Standard indentation for lists */
+  margin-bottom: 0em; /* Further reduced margin after lists */
+}
+
+.ai-message ul {
+  list-style-type: disc; /* Ensure bullet points for unordered lists */
+  list-style-position: inside; /* Ensure bullet points are inside padding */
+}
+
+.ai-message ol {
+  list-style-type: decimal; /* Ensure numbering for ordered lists */
+  list-style-position: inside; /* Ensure numbers are inside padding */
+}
+
+.ai-message li {
+  margin: 0; /* Aggressively reset margins */
+  padding: 0; /* Aggressively reset paddings */
+  line-height: 1.1; /* Reduced line height for list items */
+  margin-bottom: 0em; /* Reduced margin after list items */
+}
+
+.ai-message blockquote {
+  margin: 0 0 0.2em 1em; /* Reduced margin below blockquotes */
+  padding-left: 1em;
+  border-left: 4px solid #8a2be2; /* Visual cue for blockquote */
+}
+
+.ai-message pre {
+  margin-bottom: 0.2em; /* Reduced margin after pre blocks */
+}
+
+.ai-message table {
+  margin-bottom: 0.2em; /* Reduced margin after tables */
+}
+
+.ai-message pre {
+  background-color: #3a1a4a; /* Darker background for code blocks */
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto; /* Enable horizontal scrolling for long lines */
+}
+
+.ai-message code {
+  font-family: 'Cascadia Code', 'Fira Code', monospace; /* Monospace font for code */
+  font-size: 0.9em;
+  color: #e0b0ff; /* Lighter purple for inline code */
+}
+
+.messageFooter {
+  margin-top: 0px; /* Remove margin for footer */
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #b0a0c0; /* Lighter grey for timestamps */
+  margin-top: 0px; /* Removed space above timestamp */
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2a1a3a; /* Same as header background */
+  border-top: 1px solid #4a2a6a; /* Border to separate footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.messageInput {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4a2a6a; /* Input field background */
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  margin-right: 10px;
+}
+
+.messageInput::placeholder {
+  color: #b0a0c0; /* Lighter placeholder text */
+}
+
+.sendButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #8a2be2; /* Bright purple for send button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sendButton:hover {
+  background-color: #9a3be2;
+}
+
+.chatMessage table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: #3a1a4a; /* Slightly lighter background for tables */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.chatMessage th,
+.chatMessage td {
+  border: 1px solid #5a3a7a; /* Border for table cells */
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.chatMessage th {
+  background-color: #4a2a6a; /* Header background */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.chatMessage tr:nth-child(even) {
+  background-color: #3a1a4a; /* Zebra striping for rows */
+}
+
+.chatMessage tr:hover {
+  background-color: #4a2a6a; /* Hover effect for rows */
+}

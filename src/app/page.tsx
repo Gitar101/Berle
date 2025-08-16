@@ -1,9 +1,20 @@
 "use client";
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './page.module.css';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "@/app/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [time, setTime] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -15,9 +26,26 @@ export default function Home() {
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen p-4 sm:p-8`}>
       {/* Top-left purple square with white vertical line */}
-      <div className={`absolute top-8 left-8 rounded-2xl flex items-center justify-center ${styles['purple-square']}`}>
-        <div className={`${styles['vertical-line']}`}></div>
-      </div>
+      <DropdownMenu onOpenChange={setIsDropdownOpen}>
+        <DropdownMenuTrigger asChild>
+          <div className={cn(
+            "absolute top-8 left-8 rounded-2xl flex items-center justify-center",
+            styles['purple-square']
+          )}>
+            <div className={cn(
+              styles['vertical-line'],
+              isDropdownOpen && styles['horizontal-line']
+            )}></div>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56">
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <DropdownMenuItem>Logout</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
       {/* Header section */}
       <header className="flex flex-col items-center justify-center h-full">
@@ -29,8 +57,8 @@ export default function Home() {
         </h1>
         <div className="flex flex-col space-y-7 w-full max-w-md">
           <button className={`${styles['glow-button']} w-full`}>Home</button>
-          <button className={`${styles['glow-button']} w-full`}>GidVox</button>
-          <button className={`${styles['glow-button']} w-full`}>Terminal</button>
+          <a href="/GidVox" className={`${styles['glow-button']} w-full flex items-center justify-center`}>GidVox</a>
+          <Link href="/terminal" className={`${styles['glow-button']} w-full flex items-center justify-center`}>Terminal</Link>
           <button className={`${styles['glow-button']} w-full`}>SSH</button>
           <button className={`${styles['glow-button']} w-full`}>About TGP</button>
         </div>

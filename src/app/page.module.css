@@ -34,3 +34,13 @@
   height: 1.75rem;
   background-color: white;
 }
+
+.horizontal-line {
+  width: 1.75rem; /* Swap width and height */
+  height: 0.2rem; /* Swap width and height */
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.vertical-line {
+  transition: width 0.3s ease, height 0.3s ease;
+}
